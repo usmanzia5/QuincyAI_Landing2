@@ -57,7 +57,7 @@ export default function Hero() {
                 onClick={scrollToContact}
                 className="bg-white hover:bg-gray-100 text-black font-semibold px-8 py-4 rounded-lg text-base transition-all duration-200 transform hover:scale-105 hover:shadow-lg shadow-white/25"
               >
-                Request a Demo
+                Join Waitlist
               </button>
               <button
                 onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
@@ -75,13 +75,13 @@ export default function Hero() {
               <div className="flex flex-wrap items-center gap-6 opacity-60">
                 {/* Placeholder logos */}
                 <div className="bg-gray-700 rounded px-4 py-2 text-gray-300 font-medium text-xs">
-                  Vancouver Construction Co.
+                  Onni Group
                 </div>
                 <div className="bg-gray-700 rounded px-4 py-2 text-gray-300 font-medium text-xs">
-                  Pacific Builders
+                  Woodbridge Homes Ltd.
                 </div>
                 <div className="bg-gray-700 rounded px-4 py-2 text-gray-300 font-medium text-xs">
-                  Metro Developments
+                  Wesgroup Properties
                 </div>
               </div>
             </div>

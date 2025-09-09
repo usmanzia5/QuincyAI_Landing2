@@ -3,18 +3,18 @@
 export default function Founders() {
   const founders = [
     {
-      name: "Sarah Chen",
-      role: "CEO & Co-Founder",
-      background: "Former BC Building Official",
-      image: "SC",
-      bio: "15+ years in municipal permitting and building code expertise across Metro Vancouver"
+      name: "Samuel J. Howard",
+      role: "Co-Founder & CEO",
+      background: "",
+      image: "SH",
+      bio: "Samuel J. Howard comes from a family with deep roots in B.C. real estate dating back to 1969. His inspiration for Quincy came from years of observing and contributing to development projects, where he saw how municipal processes create costly delays and uncertainty for builders. As an active real estate investor, he brings personal experience with the pressures of navigating complex approvals. With a background in Accounting and Business Administration, and currently pursuing his CPA designation in both Canada and the U.S., Samuel adds strong financial and regulatory expertise to the team."
     },
     {
-      name: "Michael Rodriguez",
-      role: "CTO & Co-Founder", 
-      background: "AI/ML Engineering Lead",
-      image: "MR",
-      bio: "Previously led AI initiatives at tech companies, specializing in document processing and compliance automation"
+      name: "M. Usman Zia",
+      role: "Co-Founder & CTO", 
+      background: "",
+      image: "UZ",
+      bio: "M. Usman Zia has a background in Computer Engineering and experience working on advanced AI systems for data centers at AMD. While navigating an $80M commercial development, he faced firsthand the inefficiencies and roadblocks in municipal permitting, giving him direct insight into the problem Quincy is solving. He also built a strong foundation in finance through CFA studies, complementing his technical expertise with analytical perspective. Usman is passionate about applying AI to deliver intelligence and insights that help stakeholders make smarter, faster decisions."
     }
   ];
 
@@ -48,9 +48,9 @@ export default function Founders() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Side - Founder Profiles */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             {founders.map((founder, index) => (
-              <div key={index} className="bg-black border border-gray-800 rounded-xl p-6">
+              <div key={index} className="bg-black border border-gray-800 rounded-xl p-8">
                 <div className="flex items-start space-x-4">
                   {/* Profile Image Placeholder */}
                   <div className="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
@@ -68,7 +68,7 @@ export default function Founders() {
                     <p className="text-gray-400 text-xs mb-3">
                       {founder.background}
                     </p>
-                    <p className="text-gray-300 text-xs leading-relaxed">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       {founder.bio}
                     </p>
                   </div>
@@ -117,7 +117,7 @@ export default function Founders() {
                 </div>
                 <div className="ml-3">
                   <div className="font-semibold text-white text-sm">John Smith</div>
-                  <div className="text-gray-400 text-xs">Development Manager, Pacific Builders</div>
+                  <div className="text-gray-400 text-xs">Development Manager, Woodbridge Homes Ltd.</div>
                 </div>
               </div>
             </div>

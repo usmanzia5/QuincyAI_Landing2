@@ -64,7 +64,7 @@ export default function Navigation() {
               onClick={() => scrollToSection('contact')}
               className="bg-white hover:bg-gray-100 text-black font-semibold px-6 py-2 rounded-lg transition-colors duration-200"
             >
-              Request Demo
+              Join Waitlist
             </button>
           </div>
 
@@ -138,7 +138,7 @@ export default function Navigation() {
                 onClick={() => scrollToSection('contact')}
                 className="block w-full text-left bg-white hover:bg-gray-100 text-black font-semibold px-3 py-2 rounded-lg transition-colors duration-200 mt-4"
               >
-                Request Demo
+                Join Waitlist
               </button>
             </div>
           </div>

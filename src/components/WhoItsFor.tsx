@@ -4,21 +4,21 @@ export default function WhoItsFor() {
   const targetAudiences = [
     {
       icon: "🏢",
-      title: "Real Estate Developers",
-      description: "Streamline your development pipeline with faster permit approvals",
-      benefits: ["Reduce project delays", "Lower carrying costs", "Improve cash flow"]
+      title: "Developers",
+      description: "Streamline large projects with an AI co-pilot that maps permits, timelines, and risks.",
+      benefits: ["Shorten approvals", "Lower carrying costs", "Flag requirements early"]
     },
     {
       icon: "📐",
-      title: "Architects & Engineers",
-      description: "Ensure compliance before submission with AI-powered plan review",
-      benefits: ["Catch issues early", "Reduce revisions", "Client confidence"]
+      title: "Consultants",
+      description: "Turbocharge research with AI that parses bylaws and drafts compliance reports.",
+      benefits: ["Catch compliance issues", "Cut review time", "Provide client-ready insights"]
     },
     {
-      icon: "🔨",
-      title: "General Contractors",
-      description: "Get projects started faster with predictable permit timelines",
-      benefits: ["Better scheduling", "Reduced overhead", "More profitable jobs"]
+      icon: "💼",
+      title: "Investors",
+      description: "Use AI due-diligence to de-risk sites and forecast permitting timelines.",
+      benefits: ["Spot red flags", "Compare approval paths", "Make faster decisions"]
     }
   ];
 

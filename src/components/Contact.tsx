@@ -187,7 +187,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full bg-white hover:bg-gray-100 disabled:bg-gray-400 text-black font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed text-base"
               >
-                {isSubmitting ? 'Submitting...' : 'Request Demo'}
+                {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
               </button>
             </form>
 
