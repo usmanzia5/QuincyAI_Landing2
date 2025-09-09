@@ -13,7 +13,7 @@ export default function Footer() {
               compliance checking and plan review.
             </p>
             <div className="text-gray-400 text-sm">
-              Built with ❤️ in Vancouver, BC
+              Vancouver, BC
             </div>
           </div>
 
