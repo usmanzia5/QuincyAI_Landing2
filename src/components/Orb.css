@@ -1,0 +1,36 @@
+.orb-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.orb-container canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1rem;
+}
+
+/* Ensure proper WebGL context handling */
+.orb-container canvas {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .orb-container {
+    border-radius: 0.75rem;
+  }
+  
+  .orb-container canvas {
+    border-radius: 0.75rem;
+  }
+}

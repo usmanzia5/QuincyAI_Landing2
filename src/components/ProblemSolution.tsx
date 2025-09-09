@@ -11,7 +11,7 @@ export default function ProblemSolution() {
               The Pain
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-12">
-              BC's permitting process is slow, complex, and costly. Developers face maze-like regulations, endless forms, and approval times that can stretch nearly a year. Every month of delay drives up carrying costs and stalls projects.
+              BC&apos;s permitting process is slow, complex, and costly. Developers face maze-like regulations, endless forms, and approval times that can stretch nearly a year. Every month of delay drives up carrying costs and stalls projects.
             </p>
             
             {/* Problem Statistics */}
@@ -39,7 +39,7 @@ export default function ProblemSolution() {
               The Solution
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Quincy AI is your permitting co-pilot. It instantly interprets zoning bylaws, building codes, and application requirements, giving you clear answers and compliance checks that normally take weeks. By flagging risks early and guiding you step-by-step, Quincy shortens timelines, reduces uncertainty, and helps you get to "yes" faster.
+              Quincy AI is your permitting co-pilot. It instantly interprets zoning bylaws, building codes, and application requirements, giving you clear answers and compliance checks that normally take weeks. By flagging risks early and guiding you step-by-step, Quincy shortens timelines, reduced uncertainty, and helps you get to &ldquo;yes&rdquo; faster.
             </p>
           </div>
 

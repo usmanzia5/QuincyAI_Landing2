@@ -1,7 +1,6 @@
 'use client';
 
-import SplineGreetingRobot from './SplineGreetingRobot';
-import SplineErrorBoundary from './SplineErrorBoundary';
+import Orb from './Orb';
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -87,18 +86,18 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Side - Spline 3D Greeting Robot - Single Responsive Instance */}
+          {/* Right Side - WebGL Orb */}
           <div className="flex items-center justify-center relative mt-8 lg:mt-0">
             <div 
               className="w-full max-w-md lg:max-w-none h-64 lg:h-96 relative rounded-xl lg:rounded-2xl"
               style={{ minHeight: '256px', contain: 'layout style' }}
             >
-              <SplineErrorBoundary>
-                <SplineGreetingRobot 
-                  key="hero-spline-robot" 
-                  className="w-full h-full" 
-                />
-              </SplineErrorBoundary>
+              <Orb 
+                hue={240}
+                hoverIntensity={0.5}
+                rotateOnHover={true}
+                forceHoverState={false}
+              />
             </div>
           </div>
         </div>
