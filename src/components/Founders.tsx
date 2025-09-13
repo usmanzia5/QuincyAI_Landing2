@@ -7,29 +7,29 @@ export default function Founders() {
       role: "Co-Founder & CEO",
       background: "",
       image: "SH",
-      bio: "Samuel J. Howard comes from a family with deep roots in B.C. real estate dating back to 1969. His inspiration for Quincy came from years of observing and contributing to development projects, where he saw how municipal processes create costly delays and uncertainty for builders. As an active real estate investor, he brings personal experience with the pressures of navigating complex approvals. With a background in Accounting and Business Administration, and currently pursuing his CPA designation in both Canada and the U.S., Samuel adds strong financial and regulatory expertise to the team."
+      bio: "Samuel J. Howard comes from a family with deep roots in B.C. real estate dating back to 1969. His inspiration for Quincy came from years of observing and contributing to development projects, where he saw how municipal processes create costly delays and uncertainty for builders. As an active real estate investor, he brings personal experience with the pressures of navigating complex approvals. Samuel adds strong financial and regulatory expertise to the team."
     },
     {
       name: "M. Usman Zia",
       role: "Co-Founder & CTO", 
       background: "",
       image: "UZ",
-      bio: "M. Usman Zia has a background in Computer Engineering and experience working on advanced AI systems for data centers at AMD. While navigating an $80M commercial development, he faced firsthand the inefficiencies and roadblocks in municipal permitting, giving him direct insight into the problem Quincy is solving. He also built a strong foundation in finance through CFA studies, complementing his technical expertise with analytical perspective. Usman is passionate about applying AI to deliver intelligence and insights that help stakeholders make smarter, faster decisions."
+      bio: "M. Usman Zia has a background in Computer Engineering and experience working on advanced AI systems for data centers at AMD. While navigating a large-scale commercial development, he faced firsthand the inefficiencies and roadblocks in municipal permitting, giving him direct insight into the problem Quincy is solving. He also built a strong foundation in finance through CFA studies, complementing his technical expertise with analytical perspective."
     }
   ];
 
   const expertise = [
     {
-      title: "Certified Building Officials",
-      description: "Our team includes former municipal building officials and code experts"
+      title: "AI-Powered Code Intelligence",
+      description: "Trained on BC zoning bylaws and building codes to surface compliance requirements instantly."
     },
     {
-      title: "Up-to-Date Regulations", 
-      description: "Continuously updated with the latest BC Building Code changes"
+      title: "Continuously Updated Knowledge",
+      description: "Regularly refreshed with the latest municipal regulations and policy changes across BC."
     },
     {
-      title: "Municipal Partnerships",
-      description: "Working with BC municipalities to streamline the approval process"
+      title: "Developer-Focused Partnerships",
+      description: "Built in collaboration with local developers and consultants to solve real permitting pain points."
     }
   ];
 
@@ -108,7 +108,7 @@ export default function Founders() {
               </div>
               
               <blockquote className="text-gray-300 italic mb-4 leading-relaxed text-sm">
-                &ldquo;Finally, a solution that understands BC building codes as well as we do. Quincy AI has cut our approval times from months to weeks.&rdquo;
+                &ldquo;Finally, a solution that navigates BC building codes with us. Quincy AI flags red-flags early, reduces costly re-submissions, and saves weeks of research time.&rdquo;
               </blockquote>
               
               <div className="flex items-center">
@@ -117,7 +117,7 @@ export default function Founders() {
                 </div>
                 <div className="ml-3">
                   <div className="font-semibold text-white text-sm">John Smith</div>
-                  <div className="text-gray-400 text-xs">Development Manager, Woodbridge Homes Ltd.</div>
+                  <div className="text-gray-400 text-xs">Development Manager</div>
                 </div>
               </div>
             </div>

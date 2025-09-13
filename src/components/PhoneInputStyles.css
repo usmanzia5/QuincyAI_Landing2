@@ -1,0 +1,81 @@
+/* Custom styles for react-phone-number-input to seamlessly match other form inputs */
+.phone-input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Container styling to match other inputs exactly */
+.phone-input-container .PhoneInput {
+  display: flex;
+  align-items: center;
+  background-color: #1f2937; /* bg-gray-800 */
+  border: 1px solid #374151; /* border-gray-700 */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 3.25rem; /* match py-3 + borders */
+}
+
+/* Country selector styling */
+.phone-input-container .PhoneInputCountrySelect {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.75rem 0.5rem 0.75rem 1rem; /* match px-4 py-3 */
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  min-width: fit-content;
+  border-radius: 0;
+}
+
+.phone-input-container .PhoneInputCountrySelect:hover {
+  background-color: rgba(55, 65, 81, 0.5); /* subtle hover */
+}
+
+.phone-input-container .PhoneInputCountrySelectArrow {
+  color: #9ca3af; /* text-gray-400 */
+  margin-left: 0.25rem;
+}
+
+.phone-input-container .PhoneInputCountryIcon {
+  width: 1.25rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Input field styling to seamlessly blend */
+.phone-input-container .PhoneInputInput {
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.75rem 1rem 0.75rem 0.5rem !important; /* match py-3, right px-4 */
+  font-size: 1rem !important;
+  outline: none !important;
+  flex: 1 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.phone-input-container .PhoneInputInput::placeholder {
+  color: #9ca3af !important; /* text-gray-400 */
+}
+
+/* Focus states - apply to container for unified appearance */
+.phone-input-container .PhoneInput:focus-within {
+  border-color: white;
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Ensure country selector and input don't interfere with container focus */
+.phone-input-container .PhoneInputCountrySelect:focus,
+.phone-input-container .PhoneInputInput:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove any default library styling that might interfere */
+.phone-input-container .PhoneInput--focus {
+  border-color: white !important;
+  box-shadow: 0 0 0 2px white !important;
+}

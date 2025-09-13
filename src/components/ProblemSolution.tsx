@@ -44,18 +44,10 @@ export default function ProblemSolution() {
           </div>
 
           {/* Solution Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="border-l border-white/20 pl-6">
               <div className="text-2xl font-semibold text-white mb-2">80%</div>
               <div className="text-sm text-gray-300">Research time cut</div>
-            </div>
-            <div className="border-l border-white/20 pl-6">
-              <div className="text-2xl font-semibold text-white mb-2">50%</div>
-              <div className="text-sm text-gray-300">Permit revisions reduced</div>
-            </div>
-            <div className="border-l border-white/20 pl-6">
-              <div className="text-2xl font-semibold text-white mb-2">30%</div>
-              <div className="text-sm text-gray-300">Faster approvals</div>
             </div>
             <div className="border-l border-white/20 pl-6">
               <div className="text-2xl font-semibold text-white mb-2">24/7</div>

@@ -74,13 +74,7 @@ export default function Hero() {
               <div className="flex flex-wrap items-center gap-6 opacity-60">
                 {/* Placeholder logos */}
                 <div className="bg-gray-700 rounded px-4 py-2 text-gray-300 font-medium text-xs">
-                  Onni Group
-                </div>
-                <div className="bg-gray-700 rounded px-4 py-2 text-gray-300 font-medium text-xs">
                   Woodbridge Homes Ltd.
-                </div>
-                <div className="bg-gray-700 rounded px-4 py-2 text-gray-300 font-medium text-xs">
-                  Wesgroup Properties
                 </div>
               </div>
             </div>

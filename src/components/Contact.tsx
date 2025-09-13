@@ -1,19 +1,29 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import { isValidPhoneNumber, formatNumber } from 'libphonenumber-js';
+import 'react-phone-number-input/style.css';
+import './PhoneInputStyles.css';
+
+// Dynamic import to avoid SSR issues
+const PhoneInput = dynamic(() => import('react-phone-number-input'), {
+  ssr: false,
+});
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
+    phone: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.email) {
       alert('Please enter your email address');
@@ -25,12 +35,25 @@ export default function Contact() {
       return;
     }
 
+    // Phone validation (only if phone is provided)
+    if (formData.phone && !isValidPhoneNumber(formData.phone)) {
+      alert('Please enter a valid phone number');
+      return;
+    }
+
     setIsSubmitting(true);
+
+    // Prepare submission data with normalized phone in E.164 format
+    const submissionData = {
+      ...formData,
+      phoneE164: formData.phone ? formatNumber(formData.phone, 'E.164') : null,
+    };
 
     // Simulate form submission (TODO: integrate with backend or Formspree)
     setTimeout(() => {
-      alert('Thank you! We&apos;ll be in touch within 24 hours to schedule your demo.');
-      setFormData({ name: '', email: '', company: '', message: '' });
+      console.log('Form submission data:', submissionData);
+      alert('Thank you! We&apos;ll be in touch soon to get you set up with early access.');
+      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
       setIsSubmitting(false);
     }, 1000);
   };
@@ -39,6 +62,13 @@ export default function Contact() {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handlePhoneChange = (value: string | undefined) => {
+    setFormData({
+      ...formData,
+      phone: value || ''
     });
   };
 
@@ -55,8 +85,7 @@ export default function Contact() {
             </span>
           </h2>
           <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-            See Quincy AI in action. Enter your details and we&apos;ll reach out to schedule a live demo 
-            and show how our platform can accelerate your projects.
+            Join the Private Beta and receive early access with a concierge onboarding for your first project.
           </p>
         </div>
 
@@ -64,7 +93,7 @@ export default function Contact() {
           {/* Left Side - Benefits */}
           <div className="space-y-8">
             <h3 className="text-xl font-semibold text-white mb-8">
-              What You&apos;ll Get in Your Demo:
+              What you&apos;ll get
             </h3>
             
             <div className="space-y-6">
@@ -75,8 +104,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1 text-sm">Live Plan Analysis</h4>
-                  <p className="text-gray-300 text-xs">See how our AI reviews your actual building plans in real-time</p>
+                  <h4 className="font-medium text-white mb-1 text-sm">Concierge Onboarding</h4>
+                  <p className="text-gray-300 text-xs">Brief intake on your project and permitting pain points.</p>
                 </div>
               </div>
 
@@ -87,8 +116,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1 text-sm">Custom Cost Analysis</h4>
-                  <p className="text-gray-300 text-xs">Calculate potential savings for your specific projects</p>
+                  <h4 className="font-medium text-white mb-1 text-sm">AI Feasibility Snapshot</h4>
+                  <p className="text-gray-300 text-xs">A high-level, clause-cited outline of permits, requirements, and likely pitfalls for a representative project (no auto-submission claims).</p>
                 </div>
               </div>
 
@@ -99,8 +128,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1 text-sm">Integration Planning</h4>
-                  <p className="text-gray-300 text-xs">Discuss how to integrate Quincy AI into your workflow</p>
+                  <h4 className="font-medium text-white mb-1 text-sm">Workflow Fit & Integration Plan</h4>
+                  <p className="text-gray-300 text-xs">How Quincy plugs into your current docs/tools and where it saves research and rework.</p>
                 </div>
               </div>
 
@@ -111,8 +140,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1 text-sm">Early Access Opportunity</h4>
-                  <p className="text-gray-300 text-xs">Get priority access to our beta program</p>
+                  <h4 className="font-medium text-white mb-1 text-sm">Priority Early Access</h4>
+                  <p className="text-gray-300 text-xs">A reserved spot in the beta plus influence on our roadmap.</p>
                 </div>
               </div>
             </div>
@@ -168,6 +197,24 @@ export default function Contact() {
               </div>
 
               <div>
+                <label htmlFor="phone" className="block text-xs font-medium text-gray-300 mb-2">
+                  Phone (optional)
+                </label>
+                <PhoneInput
+                  country="CA"
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  name="phone"
+                  id="phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="Enter phone number"
+                  className="phone-input-container"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="message" className="block text-xs font-medium text-gray-300 mb-2">
                   Tell us about your project
                 </label>
@@ -187,13 +234,10 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full bg-white hover:bg-gray-100 disabled:bg-gray-400 text-black font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed text-base"
               >
-                {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
+                {isSubmitting ? 'Submitting...' : 'Request Early Access'}
               </button>
             </form>
 
-            <p className="text-gray-400 text-xs mt-4 text-center">
-              We&apos;ll contact you within 24 hours to schedule your personalized demo.
-            </p>
           </div>
         </div>
       </div>
