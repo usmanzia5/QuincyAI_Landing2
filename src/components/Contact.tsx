@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { isValidPhoneNumber, formatNumber } from 'libphonenumber-js';
 import 'react-phone-number-input/style.css';
 import './PhoneInputStyles.css';
 
@@ -10,6 +9,8 @@ import './PhoneInputStyles.css';
 const PhoneInput = dynamic(() => import('react-phone-number-input'), {
   ssr: false,
 });
+
+const MAX_CHARACTERS = 900;
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,44 +20,7 @@ export default function Contact() {
     phone: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Basic validation
-    if (!formData.email) {
-      alert('Please enter your email address');
-      return;
-    }
-
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      alert('Please enter a valid email address');
-      return;
-    }
-
-    // Phone validation (only if phone is provided)
-    if (formData.phone && !isValidPhoneNumber(formData.phone)) {
-      alert('Please enter a valid phone number');
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    // Prepare submission data with normalized phone in E.164 format
-    const submissionData = {
-      ...formData,
-      phoneE164: formData.phone ? formatNumber(formData.phone, 'E.164') : null,
-    };
-
-    // Simulate form submission (TODO: integrate with backend or Formspree)
-    setTimeout(() => {
-      console.log('Form submission data:', submissionData);
-      alert('Thank you! We&apos;ll be in touch soon to get you set up with early access.');
-      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
+  const [characterCount, setCharacterCount] = useState(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -70,6 +34,25 @@ export default function Contact() {
       ...formData,
       phone: value || ''
     });
+  };
+
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newValue = e.target.value;
+
+    // Prevent typing beyond limit (but always allow deletion)
+    if (newValue.length <= MAX_CHARACTERS) {
+      setFormData({
+        ...formData,
+        message: newValue
+      });
+      setCharacterCount(newValue.length);
+    }
+  };
+
+  const getCounterColor = (count: number): string => {
+    if (count >= 851) return 'text-red-400';
+    if (count >= 701) return 'text-yellow-400';
+    return 'text-gray-400';
   };
 
   return (
@@ -149,7 +132,10 @@ export default function Contact() {
 
           {/* Right Side - Contact Form */}
           <div className="bg-black border border-gray-800 rounded-2xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action="https://formspree.io/f/mdkljqdb" method="POST" acceptCharset="UTF-8" autoComplete="on" className="space-y-6">
+              {/* Honeypot field to reduce spam */}
+              <input type="text" name="_gotcha" style={{display: 'none'}} tabIndex={-1} autoComplete="off" />
+
               <div>
                 <label htmlFor="name" className="block text-xs font-medium text-gray-300 mb-2">
                   Name
@@ -212,6 +198,8 @@ export default function Contact() {
                   placeholder="Enter phone number"
                   className="phone-input-container"
                 />
+                {/* Hidden input for Formspree phone submission */}
+                <input type="hidden" name="phone" value={formData.phone} />
               </div>
 
               <div>
@@ -222,19 +210,29 @@ export default function Contact() {
                   id="message"
                   name="message"
                   value={formData.message}
-                  onChange={handleChange}
+                  onChange={handleMessageChange}
                   rows={4}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
+                  maxLength={900}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors min-h-[96px] max-h-48 overflow-y-auto resize-none"
                   placeholder="What type of projects do you work on? How many permits do you apply for annually?"
+                  aria-describedby="message-counter"
                 />
+                <div className="flex justify-end mt-1">
+                  <span
+                    id="message-counter"
+                    className={`text-xs ${getCounterColor(characterCount)}`}
+                    aria-live="polite"
+                  >
+                    {characterCount}/{MAX_CHARACTERS} characters
+                  </span>
+                </div>
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-white hover:bg-gray-100 disabled:bg-gray-400 text-black font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed text-base"
+                className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 text-base"
               >
-                {isSubmitting ? 'Submitting...' : 'Request Early Access'}
+                Request Early Access
               </button>
             </form>
 
