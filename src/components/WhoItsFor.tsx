@@ -23,20 +23,20 @@ export default function WhoItsFor() {
   ];
 
   return (
-    <section id="who-its-for" className="py-20 bg-black">
+    <section id="who-its-for" className="scroll-target section-padding bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+        <div className="text-center section-gap">
+          <h2 className="text-display-2 font-medium text-white mb-6">
             Who&apos;s It For?
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-body-lg text-gray-300 max-w-3xl mx-auto">
             Quincy AI serves construction professionals across British Columbia
           </p>
         </div>
 
         {/* Audience Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {targetAudiences.map((audience, index) => (
             <div 
               key={index} 
@@ -49,10 +49,10 @@ export default function WhoItsFor() {
 
               {/* Content */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">
+                <h3 className="text-display-3 font-semibold text-white mb-4">
                   {audience.title}
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed mb-6">
+                <p className="text-body-base text-gray-300 mb-6">
                   {audience.description}
                 </p>
 
@@ -73,13 +73,13 @@ export default function WhoItsFor() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12 lg:mt-16">
           <p className="text-gray-400 mb-6">
             Ready to accelerate your projects?
           </p>
-          <button 
+          <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white hover:bg-gray-100 text-black font-semibold px-8 py-4 rounded-lg text-base transition-all duration-200 transform hover:scale-105"
+            className="tap-target bg-white hover:bg-gray-100 text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base transition-all duration-200 transform hover:scale-105"
           >
             Get Started Today
           </button>

@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 py-12">
+    <footer className="bg-black border-t border-gray-800 py-8 lg:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">Quincy AI</h3>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Revolutionizing building permit approvals in British Columbia with AI-powered 
+            <h3 className="text-display-3 font-bold text-white mb-4">Quincy AI</h3>
+            <p className="text-body-base text-gray-300 mb-4 max-w-md">
+              Revolutionizing building permit approvals in British Columbia with AI-powered
               compliance checking and plan review.
             </p>
             <div className="text-gray-400 text-sm">
@@ -26,7 +26,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-white transition-colors"
+                  className="tap-target hover:text-white transition-colors text-left py-1"
                 >
                   How It Works
                 </button>
@@ -34,7 +34,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-white transition-colors"
+                  className="tap-target hover:text-white transition-colors text-left py-1"
                 >
                   Contact
                 </button>
@@ -56,8 +56,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 sm:mb-0">
+        <div className="border-t border-gray-800 mt-6 lg:mt-8 pt-6 lg:pt-8 flex flex-col sm:flex-row justify-between items-center">
+          <div className="text-body-base text-gray-400 mb-4 sm:mb-0">
             © 2025 Quincy AI. All rights reserved.
           </div>
           

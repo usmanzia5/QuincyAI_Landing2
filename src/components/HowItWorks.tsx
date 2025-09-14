@@ -89,20 +89,20 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-black">
+    <section id="how-it-works" className="scroll-target section-padding bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+        <div className="text-center section-gap">
+          <h2 className="text-display-2 font-medium text-white mb-6">
             How It Works
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-body-lg text-gray-300 max-w-4xl mx-auto">
             From project vision to permit approval in three intelligent steps
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {/* Connection line (desktop only) */}
@@ -120,7 +120,7 @@ export default function HowItWorks() {
 
                 {/* Step Content */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 leading-tight">
+                  <h3 className="text-display-3 font-semibold text-white mb-4">
                     {step.title}
                   </h3>
                   
@@ -130,7 +130,7 @@ export default function HowItWorks() {
                     <span className="text-xs font-medium text-white">{step.keyBenefit}</span>
                   </div>
                   
-                  <p className="text-gray-300 text-base leading-relaxed">
+                  <p className="text-body-base text-gray-300">
                     {step.description}
                   </p>
                 </div>
@@ -140,14 +140,14 @@ export default function HowItWorks() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-20">
+        <div className="text-center mt-12 lg:mt-20">
           <div className="mb-6">
             <p className="text-gray-400 mb-2">Ready to experience the future of permitting?</p>
             <p className="text-sm text-gray-500">Join BC developers who are already building faster</p>
           </div>
-          <button 
+          <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white hover:bg-gray-100 text-black font-semibold px-8 py-4 rounded-lg text-base transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-white/25"
+            className="tap-target bg-white hover:bg-gray-100 text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-white/25"
           >
             See Quincy In Action
           </button>

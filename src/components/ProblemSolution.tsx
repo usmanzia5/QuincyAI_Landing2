@@ -2,15 +2,15 @@
 
 export default function ProblemSolution() {
   return (
-    <section id="problem-solution" className="py-20 bg-gray-900">
+    <section id="problem-solution" className="scroll-target section-padding bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Problem Section */}
-        <div className="text-center mb-20">
+        <div className="text-center section-gap">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+            <h2 className="text-display-2 font-medium text-white mb-6">
               The Pain
             </h2>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-12">
+            <p className="text-body-lg text-gray-300 mb-8 lg:mb-12">
               BC&apos;s permitting process is slow, complex, and costly. Developers face maze-like regulations, endless forms, and approval times that can stretch nearly a year. Every month of delay drives up carrying costs and stalls projects.
             </p>
             
@@ -34,11 +34,11 @@ export default function ProblemSolution() {
 
         {/* Solution Section */}
         <div className="text-center">
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+          <div className="max-w-3xl mx-auto mb-8 lg:mb-16">
+            <h2 className="text-display-2 font-medium text-white mb-6">
               The Solution
             </h2>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            <p className="text-body-lg text-gray-300">
               Quincy AI is your permitting co-pilot. It instantly interprets zoning bylaws, building codes, and application requirements, giving you clear answers and compliance checks that normally take weeks. By flagging risks early and guiding you step-by-step, Quincy shortens timelines, reduced uncertainty, and helps you get to &ldquo;yes&rdquo; faster.
             </p>
           </div>

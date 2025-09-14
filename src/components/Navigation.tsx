@@ -8,7 +8,9 @@ export default function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -64; // Account for fixed nav height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -72,7 +74,8 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="tap-target inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-colors duration-200"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
               <svg
                 className="h-6 w-6"
@@ -103,40 +106,40 @@ export default function Navigation() {
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-800">
+            <div className="px-2 pt-3 pb-4 space-y-2 sm:px-3 border-t border-gray-800 bg-black/95 backdrop-blur-sm">
               <button
                 onClick={() => scrollToSection('problem-solution')}
-                className="block text-gray-300 hover:text-white px-3 py-2 text-base font-medium transition-colors duration-200"
+                className="tap-target block w-full text-left text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg"
               >
                 Problem & Solution
               </button>
               <button
                 onClick={() => scrollToSection('how-it-works')}
-                className="block text-gray-300 hover:text-white px-3 py-2 text-base font-medium transition-colors duration-200"
+                className="tap-target block w-full text-left text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg"
               >
                 How It Works
               </button>
               <button
                 onClick={() => scrollToSection('who-its-for')}
-                className="block text-gray-300 hover:text-white px-3 py-2 text-base font-medium transition-colors duration-200"
+                className="tap-target block w-full text-left text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg"
               >
                 Who&apos;s It For
               </button>
               <button
                 onClick={() => scrollToSection('founders')}
-                className="block text-gray-300 hover:text-white px-3 py-2 text-base font-medium transition-colors duration-200"
+                className="tap-target block w-full text-left text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg"
               >
                 Founders
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block text-gray-300 hover:text-white px-3 py-2 text-base font-medium transition-colors duration-200"
+                className="tap-target block w-full text-left text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg"
               >
                 Contact
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left bg-white hover:bg-gray-100 text-black font-semibold px-3 py-2 rounded-lg transition-colors duration-200 mt-4"
+                className="tap-target block w-full text-left bg-white hover:bg-gray-100 text-black font-semibold px-3 py-3 rounded-lg transition-colors duration-200 mt-3"
               >
                 Join Waitlist
               </button>

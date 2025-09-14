@@ -164,23 +164,23 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900">
+    <section id="contact" className="scroll-target section-padding bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+          <h2 className="text-display-2 font-medium text-white mb-6">
             Ready to Speed Up
             <br />
             <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               Your Permits?
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-body-lg text-gray-300 max-w-3xl mx-auto">
             Join the Private Beta and receive early access with a concierge onboarding for your first project.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left Side - Benefits */}
           <div className="space-y-8">
             <h3 className="text-xl font-semibold text-white mb-8">
@@ -327,7 +327,8 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
+                  autoComplete="name"
+                  className="tap-target w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
                   placeholder="Your full name"
                 />
               </div>
@@ -342,8 +343,10 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  inputMode="email"
+                  autoComplete="email"
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
+                  className="tap-target w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
                   placeholder="your.email@company.com"
                 />
               </div>
@@ -358,7 +361,8 @@ export default function Contact() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
+                  autoComplete="organization"
+                  className="tap-target w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
                   placeholder="Your company name"
                 />
               </div>
@@ -393,7 +397,8 @@ export default function Contact() {
                   onChange={handleMessageChange}
                   rows={4}
                   maxLength={900}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors min-h-[96px] max-h-48 overflow-y-auto resize-none"
+                  autoComplete="off"
+                  className="tap-target w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-colors min-h-[96px] max-h-48 overflow-y-auto resize-none"
                   placeholder="What type of projects do you work on? How many permits do you apply for annually?"
                   aria-describedby="message-counter"
                 />
@@ -411,7 +416,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={submitState.status === 'submitting'}
-                className={`w-full font-semibold py-4 px-6 rounded-lg text-base transition-all duration-200 ${
+                className={`tap-target w-full font-semibold py-3 sm:py-4 px-6 rounded-lg text-sm sm:text-base transition-all duration-200 ${
                   submitState.status === 'submitting'
                     ? 'bg-gray-400 cursor-not-allowed text-gray-700'
                     : 'bg-white hover:bg-gray-100 text-black transform hover:scale-105'

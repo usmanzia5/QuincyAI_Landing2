@@ -34,19 +34,19 @@ export default function Founders() {
   ];
 
   return (
-    <section id="founders" className="py-20 bg-gray-900">
+    <section id="founders" className="scroll-target section-padding bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+        <div className="text-center section-gap">
+          <h2 className="text-display-2 font-medium text-white mb-6">
             Meet the Founders
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-body-lg text-gray-300 max-w-3xl mx-auto">
             Built by experts who understand both BC building codes and cutting-edge AI technology
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left Side - Founder Profiles */}
           <div className="space-y-10">
             {founders.map((founder, index) => (
@@ -59,7 +59,7 @@ export default function Founders() {
                   
                   {/* Founder Info */}
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-1">
+                    <h3 className="text-display-3 font-semibold text-white mb-1">
                       {founder.name}
                     </h3>
                     <p className="text-white/80 font-medium mb-1 text-sm">
@@ -68,7 +68,7 @@ export default function Founders() {
                     <p className="text-gray-400 text-xs mb-3">
                       {founder.background}
                     </p>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-body-base text-gray-300">
                       {founder.bio}
                     </p>
                   </div>
@@ -79,7 +79,7 @@ export default function Founders() {
 
           {/* Right Side - Company Expertise */}
           <div>
-            <h3 className="text-xl font-semibold text-white mb-8">
+            <h3 className="text-display-3 font-semibold text-white mb-6 lg:mb-8">
               Deep BC Building Code Knowledge
             </h3>
             
@@ -93,7 +93,7 @@ export default function Founders() {
                   </div>
                   <div>
                     <h4 className="font-medium text-white mb-1 text-sm">{item.title}</h4>
-                    <p className="text-gray-300 text-xs">{item.description}</p>
+                    <p className="text-body-base text-gray-300">{item.description}</p>
                   </div>
                 </div>
               ))}
