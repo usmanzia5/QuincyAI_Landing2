@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import 'react-phone-number-input/style.css';
 import './PhoneInputStyles.css';
@@ -21,6 +21,13 @@ export default function Contact() {
     message: ''
   });
   const [characterCount, setCharacterCount] = useState(0);
+  const [submitState, setSubmitState] = useState({
+    status: 'idle' as 'idle' | 'submitting' | 'success' | 'error',
+    message: '',
+    timestamp: null as number | null
+  });
+  const formRef = useRef<HTMLFormElement>(null);
+  const firstFieldRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -53,6 +60,107 @@ export default function Contact() {
     if (count >= 851) return 'text-red-400';
     if (count >= 701) return 'text-yellow-400';
     return 'text-gray-400';
+  };
+
+  // Initialize timestamp for spam protection
+  useEffect(() => {
+    setSubmitState(prev => ({ ...prev, timestamp: Date.now() }));
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (!formData.email) {
+      setSubmitState({
+        status: 'error',
+        message: 'Please enter your email address',
+        timestamp: submitState.timestamp
+      });
+      return;
+    }
+
+    // Email format validation
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      setSubmitState({
+        status: 'error',
+        message: 'Please enter a valid email address',
+        timestamp: submitState.timestamp
+      });
+      return;
+    }
+
+    // Spam protection: minimum time check (3 seconds)
+    if (submitState.timestamp && Date.now() - submitState.timestamp < 3000) {
+      setSubmitState({
+        status: 'error',
+        message: 'Please wait a moment before submitting',
+        timestamp: submitState.timestamp
+      });
+      return;
+    }
+
+    setSubmitState(prev => ({ ...prev, status: 'submitting', message: '' }));
+
+    try {
+      const response = await fetch('https://formspree.io/f/mdkljqdb', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          message: formData.message,
+          _gotcha: '' // Honeypot field
+        })
+      });
+
+      if (response.ok) {
+        setSubmitState({
+          status: 'success',
+          message: 'Thank you! We\'ll be in touch soon to get you set up with early access.',
+          timestamp: submitState.timestamp
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          message: ''
+        });
+        setCharacterCount(0);
+
+        // Focus first field after brief delay
+        setTimeout(() => {
+          firstFieldRef.current?.focus();
+        }, 100);
+
+        // Auto-dismiss success message after 5 seconds
+        setTimeout(() => {
+          setSubmitState(prev => prev.status === 'success' ? { ...prev, status: 'idle', message: '' } : prev);
+        }, 5000);
+
+      } else {
+        const errorData = await response.json();
+        setSubmitState({
+          status: 'error',
+          message: errorData.errors?.[0]?.message || 'Something went wrong. Please try again.',
+          timestamp: submitState.timestamp
+        });
+      }
+    } catch {
+      setSubmitState({
+        status: 'error',
+        message: 'Network error. Please check your connection and try again.',
+        timestamp: submitState.timestamp
+      });
+    }
   };
 
   return (
@@ -132,7 +240,79 @@ export default function Contact() {
 
           {/* Right Side - Contact Form */}
           <div className="bg-black border border-gray-800 rounded-2xl p-8">
-            <form action="https://formspree.io/f/mdkljqdb" method="POST" acceptCharset="UTF-8" autoComplete="on" className="space-y-6">
+            {/* Success/Error Banner */}
+            {submitState.status !== 'idle' && (
+              <div
+                className={`mb-6 p-4 rounded-lg border transition-all duration-300 ${
+                  submitState.status === 'success'
+                    ? 'bg-green-900/20 border-green-500/30 text-green-400'
+                    : submitState.status === 'error'
+                    ? 'bg-red-900/20 border-red-500/30 text-red-400'
+                    : 'bg-blue-900/20 border-blue-500/30 text-blue-400'
+                }`}
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0">
+                    {submitState.status === 'success' ? (
+                      <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    ) : submitState.status === 'error' ? (
+                      <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5 text-blue-400 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">
+                      {submitState.status === 'submitting'
+                        ? 'Submitting your request...'
+                        : submitState.message
+                      }
+                    </p>
+                    {submitState.status === 'error' && (
+                      <button
+                        type="button"
+                        onClick={() => setSubmitState(prev => ({ ...prev, status: 'idle', message: '' }))}
+                        className="mt-2 text-xs text-red-300 hover:text-red-200 underline transition-colors"
+                      >
+                        Try again
+                      </button>
+                    )}
+                  </div>
+                  {submitState.status === 'success' && (
+                    <button
+                      type="button"
+                      onClick={() => setSubmitState(prev => ({ ...prev, status: 'idle', message: '' }))}
+                      className="flex-shrink-0 text-green-400 hover:text-green-300 transition-colors"
+                      aria-label="Dismiss success message"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              action="https://formspree.io/f/mdkljqdb"
+              method="POST"
+              acceptCharset="UTF-8"
+              autoComplete="on"
+              className="space-y-6"
+            >
               {/* Honeypot field to reduce spam */}
               <input type="text" name="_gotcha" style={{display: 'none'}} tabIndex={-1} autoComplete="off" />
 
@@ -141,6 +321,7 @@ export default function Contact() {
                   Name
                 </label>
                 <input
+                  ref={firstFieldRef}
                   type="text"
                   id="name"
                   name="name"
@@ -190,7 +371,6 @@ export default function Contact() {
                   country="CA"
                   value={formData.phone}
                   onChange={handlePhoneChange}
-                  name="phone"
                   id="phone"
                   type="tel"
                   inputMode="tel"
@@ -230,9 +410,24 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 text-base"
+                disabled={submitState.status === 'submitting'}
+                className={`w-full font-semibold py-4 px-6 rounded-lg text-base transition-all duration-200 ${
+                  submitState.status === 'submitting'
+                    ? 'bg-gray-400 cursor-not-allowed text-gray-700'
+                    : 'bg-white hover:bg-gray-100 text-black transform hover:scale-105'
+                }`}
               >
-                Request Early Access
+                {submitState.status === 'submitting' ? (
+                  <span className="flex items-center justify-center space-x-2">
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Submitting...</span>
+                  </span>
+                ) : (
+                  'Request Early Access'
+                )}
               </button>
             </form>
 
