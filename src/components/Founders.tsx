@@ -7,14 +7,21 @@ export default function Founders() {
       role: "Co-Founder & CEO",
       background: "",
       image: "SH",
-      bio: "Samuel J. Howard comes from a family with deep roots in B.C. real estate dating back to 1969. His inspiration for Quincy came from years of observing and contributing to development projects, where he saw how municipal processes create costly delays and uncertainty for builders. As an active real estate investor, he brings personal experience with the pressures of navigating complex approvals. Samuel adds strong financial and regulatory expertise to the team."
+      bio: "Samuel J. Howard is a B.C. real estate operator and investor with family roots in the industry since 1969. After years in development projects, he co-founded Tribunus to reduce municipal-process delays and uncertainty. He brings hands-on approvals experience plus strong financial and regulatory expertise."
     },
     {
       name: "M. Usman Zia",
-      role: "Co-Founder & CTO", 
+      role: "Co-Founder & Chief Product Officer",
       background: "",
       image: "UZ",
-      bio: "M. Usman Zia has a background in Computer Engineering and experience working on advanced AI systems for data centers at AMD. While navigating a large-scale commercial development, he faced firsthand the inefficiencies and roadblocks in municipal permitting, giving him direct insight into the problem Quincy is solving. He also built a strong foundation in finance through CFA studies, complementing his technical expertise with analytical perspective."
+      bio: "M. Usman Zia is a Computer Engineer who's worked on advanced AI systems at AMD. After experiencing permitting roadblocks on a personal commercial real estate development project, he co-founded Tribunus to address those inefficiencies. He complements his technical depth with a strong finance foundation from CFA studies."
+    },
+    {
+      name: "Gurinder Garcha",
+      role: "Co-Founder & Chief Technology Officer",
+      background: "",
+      image: "GG",
+      bio: "Gurinder Garcha worked as a Staff Engineer at AMD and is now a builder deep in coding, systems design, and integrations. He co-founded Tribunus to drive reliable, scalable implementation across AI infrastructure and product features."
     }
   ];
 
@@ -108,7 +115,7 @@ export default function Founders() {
               </div>
               
               <blockquote className="text-gray-300 italic mb-4 leading-relaxed text-sm">
-                &ldquo;Finally, a solution that navigates BC building codes with us. Quincy AI flags red-flags early, reduces costly re-submissions, and saves weeks of research time.&rdquo;
+                &ldquo;Finally, a solution that navigates BC building codes with us. Tribunus Labs flags red-flags early, reduces costly re-submissions, and saves weeks of research time.&rdquo;
               </blockquote>
               
               <div className="flex items-center">

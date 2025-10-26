@@ -17,7 +17,7 @@ export default function ProblemSolution() {
             {/* Problem Statistics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-3xl font-semibold text-red-400 mb-2">13-14</div>
+                <div className="text-3xl font-semibold text-red-400 mb-2">~14</div>
                 <div className="text-sm text-gray-300">Months for rezoning & DP approvals</div>
               </div>
               <div className="text-center">
@@ -39,7 +39,7 @@ export default function ProblemSolution() {
               The Solution
             </h2>
             <p className="text-body-lg text-gray-300">
-              Quincy AI is your permitting co-pilot. It instantly interprets zoning bylaws, building codes, and application requirements, giving you clear answers and compliance checks that normally take weeks. By flagging risks early and guiding you step-by-step, Quincy shortens timelines, reduced uncertainty, and helps you get to &ldquo;yes&rdquo; faster.
+              Tribunus is your permitting AI co-pilot. It instantly interprets zoning bylaws, building codes, and application requirements, giving you clear answers and compliance checks that normally take weeks. By flagging risks early and guiding you step-by-step, Tribunus shortens timelines, reduced uncertainty, and helps you get to &ldquo;yes&rdquo; faster.
             </p>
           </div>
 

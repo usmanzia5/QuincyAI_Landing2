@@ -9,18 +9,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Quincy AI - AI-Powered Building Permits for BC",
+  title: "Tribunus Labs - AI-Powered Building Permits for BC",
   description: "Fast-track building permit approvals in British Columbia with AI-powered compliance checking. Get permit approvals 90% faster with automated plan review and BC Building Code validation.",
   keywords: ["building permits", "BC", "British Columbia", "AI", "construction", "development", "compliance", "building code"],
-  authors: [{ name: "Quincy AI" }],
+  authors: [{ name: "Tribunus Labs" }],
   openGraph: {
-    title: "Quincy AI - AI-Powered Building Permits for BC",
+    title: "Tribunus Labs - AI-Powered Building Permits for BC",
     description: "Fast-track building permit approvals in British Columbia with AI-powered compliance checking. Get permit approvals 90% faster.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quincy AI - AI-Powered Building Permits for BC",
+    title: "Tribunus Labs - AI-Powered Building Permits for BC",
     description: "Fast-track building permit approvals in British Columbia with AI-powered compliance checking. Get permit approvals 90% faster.",
   },
 };

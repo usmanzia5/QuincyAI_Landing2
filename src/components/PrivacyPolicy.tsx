@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
         {/* Page Header */}
         <header className="mb-12">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-4 tracking-tight">
-            Quincy AI — Privacy Policy
+            Tribunus Labs — Privacy Policy
           </h1>
           <p className="text-gray-400 text-lg">
             Effective date: September 13, 2025
@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
           {/* Introduction */}
           <div className="mb-12">
             <p className="text-gray-300 leading-relaxed mb-6">
-              Quincy AI (&ldquo;Quincy&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) provides an AI co-pilot that helps teams understand BC permitting requirements. This Privacy Policy explains what we collect, how we use it, how we share it, and your choices. We handle personal information in line with British Columbia&apos;s PIPA and Canada&apos;s PIPEDA. If you are in the EU/UK, we also describe rights under the GDPR.
+              Tribunus Labs (&ldquo;Tribunus&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) provides an AI co-pilot that helps teams understand BC permitting requirements. This Privacy Policy explains what we collect, how we use it, how we share it, and your choices. We handle personal information in line with British Columbia&apos;s PIPA and Canada&apos;s PIPEDA. If you are in the EU/UK, we also describe rights under the GDPR.
             </p>
           </div>
 
@@ -196,10 +196,10 @@ export default function PrivacyPolicy() {
             </h2>
             <div className="space-y-4 text-gray-300 leading-relaxed ml-6">
               <p>
-                <strong className="text-white">Email:</strong> <a href="mailto:hello@QuincyAI.com" className="text-sky-200 hover:text-sky-100 transition-colors">hello@QuincyAI.com</a>
+                <strong className="text-white">Email:</strong> <a href="mailto:hello@TribunusLabs.com" className="text-sky-200 hover:text-sky-100 transition-colors">hello@TribunusLabs.com</a>
               </p>
               <p>
-                <strong className="text-white">Mailing address:</strong> Quincy AI, Vancouver, BC, Canada
+                <strong className="text-white">Mailing address:</strong> Tribunus Labs, Vancouver, BC, Canada
               </p>
             </div>
           </section>

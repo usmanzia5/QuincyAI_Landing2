@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-normal text-white">Quincy <span className="text-sky-200">AI</span></h1>
+            <h1 className="text-2xl font-normal text-white">Tribunus <span className="text-sky-200">Labs</span></h1>
           </div>
 
           {/* Desktop Navigation */}

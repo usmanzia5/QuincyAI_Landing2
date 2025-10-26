@@ -31,7 +31,7 @@ export default function WhoItsFor() {
             Who&apos;s It For?
           </h2>
           <p className="text-body-lg text-gray-300 max-w-3xl mx-auto">
-            Quincy AI serves construction professionals across British Columbia
+            Tribunus Labs serves construction professionals across British Columbia
           </p>
         </div>
 

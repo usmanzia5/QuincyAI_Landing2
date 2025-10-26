@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-display-3 font-bold text-white mb-4">Quincy AI</h3>
+            <h3 className="text-display-3 font-bold text-white mb-4">Tribunus Labs</h3>
             <p className="text-body-base text-gray-300 mb-4 max-w-md">
               Revolutionizing building permit approvals in British Columbia with AI-powered
               compliance checking and plan review.
@@ -24,20 +24,20 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <button
-                  onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="tap-target hover:text-white transition-colors text-left py-1"
+                <Link
+                  href="/#how-it-works"
+                  className="hover:text-white transition-colors"
                 >
                   How It Works
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="tap-target hover:text-white transition-colors text-left py-1"
+                <Link
+                  href="/#contact"
+                  className="hover:text-white transition-colors"
                 >
                   Contact
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -58,7 +58,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-6 lg:mt-8 pt-6 lg:pt-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="text-body-base text-gray-400 mb-4 sm:mb-0">
-            © 2025 Quincy AI. All rights reserved.
+            © 2025 Tribunus Labs. All rights reserved.
           </div>
           
           {/* Social Links Placeholder */}

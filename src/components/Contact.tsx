@@ -220,7 +220,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-white mb-1 text-sm">Workflow Fit & Integration Plan</h4>
-                  <p className="text-gray-300 text-xs">How Quincy plugs into your current docs/tools and where it saves research and rework.</p>
+                  <p className="text-gray-300 text-xs">How Tribunus plugs into your current docs/tools and where it saves research and rework.</p>
                 </div>
               </div>
 

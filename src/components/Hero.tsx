@@ -47,7 +47,7 @@ export default function Hero() {
 
             {/* Subheadline */}
             <p className="text-body-lg text-gray-400 mb-8 max-w-2xl">
-              Navigate zoning bylaws, building codes, and approval steps with an intelligent assistant that guides you through the permitting process.
+              Tribunus analyzes council reports, bylaws, and OCPs to flag risks and explain past approval decisions, helping BC real estate developers submit stronger, approver-ready permit packages.
             </p>
 
             {/* CTA Buttons */}

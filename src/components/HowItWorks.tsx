@@ -67,22 +67,22 @@ export default function HowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Tell Quincy About Your Project",
-      description: "Share your site address, lot details, and vision. Quincy's AI instantly ingests your inputs and pulls the right zoning bylaws, codes, and requirements for your property.",
+      title: "Tell Tribunus About Your Project",
+      description: "Share your site address, lot details, and vision. Tribunus's AI instantly ingests your inputs and pulls the right zoning bylaws, codes, and requirements for your property.",
       keyBenefit: "Instant property intelligence",
       icon: <ConstructionIcon />
     },
     {
       number: "02", 
       title: "Get an AI-Generated Permitting Gameplan",
-      description: "In seconds, Quincy's AI analyzes your project and produces a tailored roadmap: permits, fees, timelines, and draft forms. It's like having a senior permitting expert on call 24/7.",
+      description: "In seconds, Tribunus's AI analyzes your project and produces a tailored roadmap: permits, fees, timelines, and draft forms. It's like having a senior permitting expert on call 24/7.",
       keyBenefit: "Complete roadmap in seconds",
       icon: <ClipboardIcon />
     },
     {
       number: "03",
       title: "AI Co-Pilot Through to Approval",
-      description: "Quincy stays by your side—answering code questions, flagging risks, and formatting submission packages. The AI acts as a knowledgeable co-pilot, guiding you confidently to \"yes.\"",
+      description: "Tribunus stays by your side—answering code questions, flagging risks, and formatting submission packages. The AI acts as a knowledgeable co-pilot, guiding you confidently to \"yes.\"",
       keyBenefit: "Expert guidance to approval",
       icon: <TargetIcon />
     }
@@ -149,7 +149,7 @@ export default function HowItWorks() {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="tap-target bg-white hover:bg-gray-100 text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-white/25"
           >
-            See Quincy In Action
+            See Tribunus In Action
           </button>
         </div>
       </div>
