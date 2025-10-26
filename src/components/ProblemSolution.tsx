@@ -22,7 +22,7 @@ export default function ProblemSolution() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-semibold text-red-400 mb-2">~11</div>
-                <div className="text-sm text-gray-300">Months for Vancouver building permits</div>
+                <div className="text-sm text-gray-300">Months for BC building permits</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-semibold text-red-400 mb-2">1-3%</div>
